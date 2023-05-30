@@ -1,0 +1,32 @@
+.photos-property {
+  height: auto;
+}
+
+.col1 img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+
+.col2 img {
+  height: 50%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.col3 img {
+  height: 50%;
+  width: 100%;
+  object-fit: contain;
+}
+
+// .tile-photo {
+//   height: 50%;
+//   width: 100%;
+// }
+
+// img {
+//   width: 10%;
+//   object-fit: contain;
+//   aspect-ratio: 1/1;
+// }

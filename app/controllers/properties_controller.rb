@@ -38,4 +38,5 @@ class PropertiesController < ApplicationController
     def set_property
         @property = Property.find(params[:id])
     end
+
 end
