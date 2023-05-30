@@ -1,0 +1,13 @@
+<h1>Properties</h1>
+
+<ul>
+  <% @properties.each do |property| %>
+    <li>
+      <%= property.name %>
+      <%= property.address %>
+      <%= property.name %>
+      <%= property.description %>
+      <%= property.price_per_night %>
+    </li>
+  <% end %>
+</ul>
