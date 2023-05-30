@@ -1,3 +1,4 @@
+<div class="card p-5 mb-3">
     <%= simple_form_for @property do |f| %>
         <%= f.input :name %>
         <%= f.input :address %>
@@ -6,3 +7,7 @@
         <%= f.input :number_of_guests %>
         <%= f.submit class:'btn btn-primary mb-3' %>
     <% end %>
+    <%= link_to properties_path do %>
+        <i class="fa-solid fa-arrow-rotate-left mb-1"> Back to Home</i>
+    <% end %>
+</div>
