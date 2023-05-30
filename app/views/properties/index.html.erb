@@ -1,0 +1,22 @@
+<h1>Properties</h1>
+
+<div class="container">
+
+  <div class="row d-flex">
+    <% @properties.each do |property| %>
+
+  </div>
+
+  <div class="index-card mb-3 me-3">
+    <%= image_tag "logo.png" %>
+    <div class="card-body d-flex justify-content-between p-2">
+      <div>
+        <h5 class="card-title">Name: <%= property.name %></h5>
+        <p class="card-text">Description: <%= property.description %></p>
+        <p class="card-text"><small class="text-muted"> PPN:$<%= property.price_per_night %></small></p>
+      </div>
+        <i class="fa-regular fa-heart"></i>
+    </div>
+     <% end %>
+  </div>
+</div>
