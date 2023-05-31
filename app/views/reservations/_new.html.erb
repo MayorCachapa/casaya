@@ -1,0 +1,10 @@
+    <div class="col-12 col-sm-6">
+      <div class="bg-white rounded p-3">
+        <%= simple_form_for [@property, @reservation], url: property_reservations_path(@property), remote: true do |f| %>
+          <%= f.input :starts_at, as: :date %>
+          <%= f.input :ends_at, as: :date %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <%= f.button :submit, class:'btn btn-primary mb-3' %>
+        <% end %>
+      </div>
+    </div>

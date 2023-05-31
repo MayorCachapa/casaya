@@ -7,6 +7,7 @@ class PropertiesController < ApplicationController
   
     def show
         @reservation = Reservation.new
+        @user = current_user
     end
 
     def new
