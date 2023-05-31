@@ -33,7 +33,7 @@
   <div class="reservation-details border-top pt-3">
     <div class="row d-flex justify-content-between">
       <h5 class="w-25"><strong>Property Details:</strong></h5>
-      <button type="button" class="btn btn-primary reservation-button border-radius-round text-light rounded-pill">Reserve</button>
+      <button type="button" class="btn btn-primary reservation-button border-radius-round text-light rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Reserve</button>
     </div>
     <div class="row">
       <p>$<%= @property.price_per_night %> per night</p>
@@ -44,8 +44,8 @@
   </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Create a reservation</button>
+<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Create a reservation</button> %>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,16 +55,16 @@ Create a reservation</button>
         <h1 class="modal-title fs-5" id="exampleModalLabel">Make a reservation:</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body w-auto">
         <%= render"reservations/new", property: @property, user: @user, reservation: @reservation %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary text-light rounded-pill" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-<%# 
+<%#
 <script>
   const button = document.getElementById('modal-toggler')
   const modal = document.getElementById('modal-window')

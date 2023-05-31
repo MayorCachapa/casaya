@@ -2,7 +2,11 @@ class ReservationsController < ApplicationController
     before_action :set_reservation, only: [:destroy, :edit]
     before_action :set_property, only: [:new, :create]
     before_action :set_user, only: [:new, :create]
-    
+
+    def index
+      @reservation = Reservation.all
+    end
+
     def new
         @reservation = Reservation.new
     end
@@ -12,7 +16,7 @@ class ReservationsController < ApplicationController
         @reservation.user = @user
         @reservation.property = @property
         if @reservation.save
-            redirect_to property_path(@property)
+            redirect_to reservations_path
         else
             render :new, status: :unprocessable_entity
         end
@@ -32,7 +36,7 @@ class ReservationsController < ApplicationController
     def reservation_params
         params.require(:reservation).permit(:starts_at, :ends_at)
     end
-    
+
     def set_property
         @property = Property.find(params[:property_id])
     end
