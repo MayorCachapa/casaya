@@ -31,11 +31,16 @@
   </div>
 
   <div class="reservation-details border-top pt-3">
+    <div class="row d-flex justify-content-between">
+      <h5 class="w-25"><strong>Property Details:</strong></h5>
+      <button type="button" class="btn btn-primary reservation-button border-radius-round text-light rounded-pill">Reserve</button>
+    </div>
+    <div class="row">
+      <p>$<%= @property.price_per_night %> per night</p>
+      <p>Sleeps: <%= @property.number_of_guests %> guests</p>
+      <p>Description: <%= @property.description %></p>
+    </div>
 
-    <h5><strong>Property Details:</strong></h5>
-    <p>$<%= @property.price_per_night %> per night</p>
-    <p>Sleeps: <%= @property.number_of_guests %> guests</p>
-    <p>Description: <%= @property.description %></p>
   </div>
 
 <!-- Button trigger modal -->
