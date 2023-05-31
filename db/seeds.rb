@@ -49,7 +49,7 @@ Property.create(
 )
 
 Property.create(
-  name: "Lovely 90m2 apartment in Amsterdam near centre",
+  name: "Lovely 90m2 apartment",
   address: "Amsterdam, Noord-Holland, Netherlands",
   description: "Beautiful 90 square meter (1000 sq ft.) apartment centrally located in Old-West in a quiet street - Ideal for couples or single travellers
   The space

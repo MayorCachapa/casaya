@@ -1,21 +1,22 @@
-<h1>Properties</h1>
+
 
 <div class="container">
-
-  <div class="row d-flex">
+  <h3 class="$primary">Available Properties</h3>
+  <div class="row d-flex justify-content-center">
     <% @properties.each do |property| %>
-  </div>
-
-  <div class="index-card mb-3 me-3 col-3">
-    <%= image_tag "surf-house.jpg" %>
-    <div class="card-body d-flex justify-content-between p-2 ">
-      <div>
-        <h5 class="card-title"><%= link_to property.name, property_path(property) %></h5>
-        <p class="card-text"><%= property.description[0..60] %>.....</p>
-        <p class="card-text"><small class="text-muted"> PPN: $<%= property.price_per_night %></small></p>
+      <div class="index-card mb-5 me-5 col-3 border">
+        <%= image_tag "surf-house.jpg" %>
+        <div class="card-body d-flex">
+          <div>
+            <h5 class="card-title"><%= link_to property.name, property_path(property) %></h5>
+            <p class="card-text"><%= property.address[0..60] %>.....</p>
+            <p class="card-price">Price: $<%= property.price_per_night %></p>
+          </div>
+          <div class="favorite-icon">
+            <button><%= image_tag "shaka.png" %></button>
+          </div>
+        </div>
       </div>
-        <i class="fa-regular fa-heart"></i>
-    </div>
-     <% end %>
+    <% end %>
   </div>
 </div>
