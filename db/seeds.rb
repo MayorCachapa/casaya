@@ -28,14 +28,14 @@ user = User.create(
 # end
 
 # //// Seed manual template
-Property.create(
-  name: "",
-  address: "",
-  description: "",
-  price_per_night: ,
-  number_of_guests: ,
-  user: user
-)
+# Property.create(
+#   name: "",
+#   address: "",
+#   description: "",
+#   price_per_night: ,
+#   number_of_guests: ,
+#   user: user
+# )
 
 Property.create(
   name: "Clean & Cozy city apartment",
