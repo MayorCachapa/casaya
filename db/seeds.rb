@@ -119,8 +119,7 @@ Property.create(
 
 Property.create(
   name: "New amazing 4 person Jordaan Apartment II",
-  address: "Very luxurious and spacious apartment in the best area of Amsterdam.The Jordaan area9 straatjes area. Perfect for 4 people who want to enjoy their vacation to the max! The city centre of Amsterdam offers plenty of stuff to do and places to see. Anne Frank House, Vondelpark, Foam Photography Museum, Rijksmuseum, Leideseplein- one of the city’s most popular nightlife areas, home to famous music venues, fun dance clubs, relaxed bars and more and many more to see!
-  Bewerken",
+  address: "Amsterdam, Noord-Holland, Netherlands",
   description: "Very luxurious and spacious apartment in the best area of Amsterdam.The Jordaan area9 straatjes area. Perfect for 4 people who want to enjoy their vacation to the max! The city centre of Amsterdam offers plenty of stuff to do and places to see. Anne Frank House, Vondelpark, Foam Photography Museum, Rijksmuseum, Leideseplein- one of the city’s most popular nightlife areas, home to famous music venues, fun dance clubs, relaxed bars and more and many more to see!
   Bewerken",
   price_per_night: 428,

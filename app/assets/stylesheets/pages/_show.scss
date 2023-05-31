@@ -3,15 +3,16 @@
 }
 
 .col1 img {
-  height: auto;
+  height: 420px;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .col2 img {
   height: 50%;
   width: 100%;
-  object-fit: contain;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 .col3 img {
