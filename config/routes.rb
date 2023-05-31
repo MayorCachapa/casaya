@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "properties#index"
 
   resources :properties do
     resources :reservations, only: :create
