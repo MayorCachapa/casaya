@@ -71,5 +71,10 @@ body {
 }
 
 .favorite-icon img:hover {
-  background-color: $yellow;
+  background-color: $info;
+}
+
+.active-favorite {
+  background-color: $info;
+
 }
