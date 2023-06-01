@@ -1,13 +1,17 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update]
-  
+
     def index
       @properties = Property.all
+
+
     end
-  
+
     def show
         @reservation = Reservation.new
         @user = current_user
+
+        @markers = [{lat: @property.latitude, lng: @property.longitude}]
     end
 
     def new
@@ -17,7 +21,7 @@ class PropertiesController < ApplicationController
     def create
         @property = Property.new(property_params)
         @property.user = current_user
-        
+
         if @property.save
             redirect_to property_path(@property)
         else
@@ -33,12 +37,12 @@ class PropertiesController < ApplicationController
             redirect_to property_path(@property)
         else
             render :edit, status: :unprocessable_entity
-        end    
+        end
     end
 
     private
     def property_params
-        params.require(:property).permit(:name, :address, :description, :price_per_night, :number_of_guests)        
+        params.require(:property).permit(:name, :address, :description, :price_per_night, :number_of_guests, :latitude, :longitude)
     end
 
     def set_property

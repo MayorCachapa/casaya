@@ -6,7 +6,7 @@
     </div>
     <div class="d-flex flex-row justify-content-between">
       <div>
-        <h5><%= @property.address %></h5>
+        <p><%= @property.address %></p>
       </div>
       <div>
         <h5>$<%= @property.price_per_night %> per night</h5>
@@ -30,17 +30,37 @@
     </div>
   </div>
 
+  <div class="reservation border-top pt-3">
+    <h5 class="w-25"><strong>Reserve this pad</strong> <i class="fa-solid fa-eye"></i></h5>
+    <button type="button" class="btn btn-primary reservation-button border-radius-round text-light rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Reserve</button>
+  </div>
+
   <div class="reservation-details border-top pt-3">
     <div class="row d-flex justify-content-between">
-      <h5 class="w-25"><strong>Property Details:</strong></h5>
-      <button type="button" class="btn btn-primary reservation-button border-radius-round text-light rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Reserve</button>
+      <h5 class="w-25"><strong>About this pad</strong> <i class="fa-solid fa-bed"></i></h5>
     </div>
     <div class="row">
-      <p>$<%= @property.price_per_night %> per night</p>
-      <p>Sleeps: <%= @property.number_of_guests %> guests</p>
-      <p>Description: <%= @property.description %></p>
+      <p class="mb-1"><strong>Price - </strong>$<%= @property.price_per_night %> per night</p>
+      <p class="mb-1"><strong>Sleeps - </strong><%= @property.number_of_guests %> guests</p>
+      <p class="mb-1"><strong>Details</strong></p>
+      <p><%= @property.description %></p>
     </div>
+  </div>
 
+  <div class="map-reviews border-top pt-3">
+    <div class="row d-flex">
+      <div class="col w-50 reviews">
+        <h5>Reviews</h5>
+      </div>
+      <div class="col w-50 map">
+        <h5>Map</h5>
+        <div style="width: 100%; height: 400px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
   </div>
 
 <!-- Button trigger modal -->
