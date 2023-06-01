@@ -28,7 +28,13 @@
             <p class="card-price">Price: $<%= property.price_per_night %></p>
           </div>
           <div class="favorite-icon">
-            <button><%= image_tag "shaka.png" %></button>
+            <%if Favorite.find_by(user: current_user, property: property) %>
+              <%= image_tag "shaka.png", class: "active-favorite" %>
+            <% else %>
+              <%= button_to property_favorites_path(property), method: :post do %>
+                <%= image_tag "shaka.png" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
