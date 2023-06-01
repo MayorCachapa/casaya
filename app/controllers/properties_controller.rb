@@ -3,7 +3,6 @@ class PropertiesController < ApplicationController
 
     def index
       @properties = Property.all
-
       if params[:query].present?
         sql_subquery = "name ILIKE :query OR description ILIKE :query"
         @properties = @properties.where(sql_subquery, query: "%#{params[:query]}%")
@@ -13,6 +12,8 @@ class PropertiesController < ApplicationController
     def show
         @reservation = Reservation.new
         @user = current_user
+
+        @markers = [{lat: @property.latitude, lng: @property.longitude}]
     end
 
     def new
@@ -43,7 +44,7 @@ class PropertiesController < ApplicationController
 
     private
     def property_params
-        params.require(:property).permit(:name, :address, :description, :price_per_night, :number_of_guests)
+        params.require(:property).permit(:name, :address, :description, :price_per_night, :number_of_guests, :latitude, :longitude)
     end
 
     def set_property
