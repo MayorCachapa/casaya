@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="property-info mb-3">
+    <div class="d-flex flex-row">
+      <h2><%= @property.name %></h2>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <h5><%= @property.address %></h5>
+      </div>
+      <div>
+        <h5>$<%= @property.price_per_night %> per night</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="container photos-property gx-1 gy-1 d-flex justify-content-evenly mb-3">
+    <div class="row">
+      <div class="col col-lg-6 col1">
+        <img src="<%= image_path "photo1.jpg"%>" alt="404 error">
+      </div>
+      <div class="col col-lg-3 col2">
+        <div class="tile-photo pb-3"><img src="<%= image_path "photo2.jpg" %>" alt="404 error"></div>
+        <div class="tile-photo"><img src="<%= image_path "photo3.jpg" %>" alt="404 error"></div>
+      </div>
+      <div class="col col-lg-3 col3">
+        <div class="tile-photo pb-3"><img src="<%= image_path "photo4.jpg" %>" alt="404 error"></div>
+        <div class="tile-photo"><img src="<%= image_path "photo5.jpg" %>" alt="404 error"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reservation-details border-top pt-3">
+    <div class="row d-flex justify-content-between">
+      <h5 class="w-25"><strong>Reservation Details:</strong></h5>
+    </div>
+    <div class="row">
+      <p><strong>Starts:</strong> <%= @reservation.starts_at %> <strong>Ends:</strong> <%= @reservation.ends_at %></p>
+      <p><strong>Requested by:</strong> <%= @reservation.user.first_name %> <%= @reservation.user.last_name %></p>
+      <p>$<%= @reservation.total_price.to_i %> for <%= (@reservation.ends_at - @reservation.starts_at).to_i%> days</p>
+    </div>
+    <hr class="my-3">
+    <div class="row mt-4">
+      <div class="col-12">
+        <% if @reservation.reviews.empty? %>
+          <small><em class="text-muted">Be the first one to review this property!</em></small>
+        <% else %>
+          <% @reservation.reviews.each do |review| %>
+            <div>
+              <% review.rating.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+              <p class="mb-0"><%= review.content %></p>
+            </div>
+            <hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="card bg-white rounded p-3">
+          <h5 class="card-title">Add your review</h5>
+          <div class="card-body">
+            <%= simple_form_for [@reservation, @review] do |f| %>
+              <%= f.input :content, placeholder: "Add your review here..." %>
+              <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating" %>
+              <%= f.submit class: "btn btn-flat" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
