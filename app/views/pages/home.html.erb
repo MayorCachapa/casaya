@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
 <hr>
-<h3>Reservations:</h3>
+<h3>Reservations</h3>
 <% if @user_reservations.any? %>
   <% @user_reservations.each do |reservation| %>
     <div class="index-card mb-5 me-3 col-2 border">
@@ -23,6 +23,13 @@
   <% end %>
 <% else %>
   <p>No reservations found.</p>
+<% end %>
+
+
+
+<% if current_user.is_homeowner? %>
+  <h3>My Properties</h3>
+  <button><%= link_to 'Add New Property', new_property_path %></button>
 <% end %>
 
 <h3>Favorites:</h3>
