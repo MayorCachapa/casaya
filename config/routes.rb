@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :reservations, only: [ :new, :create ]
   end
   resources :reservations, only: [ :edit, :update, :destroy, :index ]
+
+  get 'dashboard', to: 'pages#home', as: 'dashboard'
 end
