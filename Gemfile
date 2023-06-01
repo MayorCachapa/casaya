@@ -82,3 +82,4 @@ gem 'faker'
 gem 'date_validator'
 gem 'bootstrap'
 gem 'popper_js'
+gem "geocoder"
