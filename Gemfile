@@ -83,3 +83,4 @@ gem 'date_validator'
 gem 'bootstrap'
 gem 'popper_js'
 gem "geocoder"
+gem "cloudinary"
