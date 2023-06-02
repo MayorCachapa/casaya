@@ -36,6 +36,7 @@
     <div class="row">
       <p><strong>Starts:</strong> <%= @reservation.starts_at %> <strong>Ends:</strong> <%= @reservation.ends_at %></p>
       <p><strong>Requested by:</strong> <%= @reservation.user.first_name %> <%= @reservation.user.last_name %></p>
+      <p><strong>Number of guests:</strong> <%= @reservation.guests %></p>
       <p>$<%= @reservation.total_price.to_i %> for <%= (@reservation.ends_at - @reservation.starts_at).to_i%> days</p>
     </div>
     <hr class="my-3">
