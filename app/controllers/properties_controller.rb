@@ -12,7 +12,6 @@ class PropertiesController < ApplicationController
     def show
         @reservation = Reservation.new
         @user = current_user
-
         @markers = [{lat: @property.latitude, lng: @property.longitude}]
     end
 
