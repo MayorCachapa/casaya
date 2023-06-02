@@ -10,7 +10,6 @@
           <h5 class="card-title"><%= link_to reservation.property.name, reservation_path(reservation) %></h5>
           <p><strong>Reservation Status: </strong><%= reservation.reservation_status.capitalize %>
           <p><strong>Starts: </strong><%= reservation.starts_at %> <strong>Ends: </strong><%= reservation.ends_at %></p>
-          <hr>
           <p class="card-price"><strong>Price - </strong>$<%= reservation.total_price.to_i %></p>
         </div>
         <% if reservation.property.user == current_user %>
