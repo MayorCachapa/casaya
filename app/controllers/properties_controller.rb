@@ -3,6 +3,12 @@ class PropertiesController < ApplicationController
 
     def index
       @properties = Property.all
+      @random_beachhouse_image_url = ["https://res.cloudinary.com/dmtuadzrb/image/upload/v1685709677/casaya/property-1-main_ofivz1.jpg",
+      "https://res.cloudinary.com/dmtuadzrb/image/upload/v1685709675/casaya/property-2-main_cdaegu.jpg",
+      "https://res.cloudinary.com/dmtuadzrb/image/upload/v1685710163/casaya/rich-brents-kwMhr2PW9zw-unsplash_x0wbsl.jpg",
+      "https://res.cloudinary.com/dmtuadzrb/image/upload/v1685710164/casaya/marvin-meyer-cjhuXRtRT0Y-unsplash_d6sh0u.jpg",
+      "https://res.cloudinary.com/dmtuadzrb/image/upload/v1685710163/casaya/roberto-nickson-tleCJiDOri0-unsplash_d92pvj.jpg",
+      "https://res.cloudinary.com/dmtuadzrb/image/upload/v1685710162/casaya/collov-home-design-4_jQL4JCS98-unsplash_gjl4sb.jpg"]
       if params[:query].present?
         sql_subquery = "name ILIKE :query OR description ILIKE :query"
         @properties = @properties.where(sql_subquery, query: "%#{params[:query]}%")
@@ -43,7 +49,7 @@ class PropertiesController < ApplicationController
 
     private
     def property_params
-        params.require(:property).permit(:name, :address, :description, :price_per_night, :number_of_guests, :latitude, :longitude)
+        params.require(:property).permit(:name, :address, :description, :price_per_night, :number_of_guests, :latitude, :longitude, photos: [])
     end
 
     def set_property

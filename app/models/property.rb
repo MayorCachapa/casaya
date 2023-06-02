@@ -4,4 +4,9 @@ class Property < ApplicationRecord
 
   belongs_to :user
   has_many :favorites
+  has_many :reservations
+
+  validates :name, length: { maximum: 50 }
+
+  has_many_attached :photos
 end
