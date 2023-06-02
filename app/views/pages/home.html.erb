@@ -1,36 +1,63 @@
-<h1>Dashboard</h1>
+<h1><%= current_user.first_name.capitalize %>'s Dashboard</h1>
 <hr>
+
+<% if current_user.is_homeowner? %>
+  <div class="properties-header mb-2">
+    <div class="d-flex justify-content-between">
+      <h3>My Properties</h3>
+       <%= link_to 'Add New Property', new_property_path, class: "btn btn-primary border-radius-round rounded-pill me-2 p-2" %>
+
+    </div>
+  </div>
+  <% @user_properties.each do |property| %>
+    <div class="card-product w-50 mb-2">
+    <%= image_tag "surf-house.jpg" %>
+      <div class="card-product-infos">
+        <h2><%= property.name.capitalize %></h2>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <h3>Reservations</h3>
-<% if @user_reservations.any? %>
-  <% @user_reservations.each do |reservation| %>
-    <div class="index-card mb-5 me-3 col-2 border">
-      <%= image_tag "surf-house.jpg", class: "card-image" %>
-      <div class="card-body d-flex flex-column">
-        <div>
-          <h5 class="card-title"><%= link_to reservation.property.name, reservation_path(reservation) %></h5>
-          <p><strong>Reservation Status: </strong><%= reservation.reservation_status.capitalize %>
-          <p><strong>Starts: </strong><%= reservation.starts_at %> <strong>Ends: </strong><%= reservation.ends_at %></p>
-          <hr>
-          <p class="card-price"><strong>Price - </strong>$<%= reservation.total_price.to_i %></p>
-        </div>
-        <% if reservation.property.user == current_user %>
-          <div class="favorite-icon mt-auto">
-            <%= link_to 'Edit status', edit_reservation_path(reservation) %>
-          </div>
-        <% end %>
+<% if current_user.is_homeowner? %>
+  <% @homeowner_reservations.each do |reservation| %>
+    <div class="card-product w-50 mb-2">
+    <%= image_tag "surf-house.jpg" %>
+      <div class="card-product-infos">
+        <h2><%= reservation.property.name.capitalize %></h2>
+        <p class="ps-4"><strong>Start Date: </strong><%= reservation.starts_at %></p>
+        <p class="ps-4"><strong>End Date: </strong><%= reservation.ends_at %></p>
+        <p class="ps-4"><strong>Total Price: $</strong><%= reservation.total_price.to_i %></p>
       </div>
     </div>
   <% end %>
 <% else %>
-  <p>No reservations found.</p>
+  <% if @user_reservations.any? %>
+    <% @user_reservations.each do |reservation| %>
+      <div class="index-card mb-5 me-3 col-2 border">
+        <%= image_tag "surf-house.jpg", class: "card-image" %>
+        <div class="card-body d-flex flex-column">
+          <div>
+            <h5 class="card-title"><%= link_to reservation.property.name, reservation_path(reservation) %></h5>
+            <p><strong>Reservation Status: </strong><%= reservation.reservation_status.capitalize %>
+            <p><strong>Starts: </strong><%= reservation.starts_at %> <strong>Ends: </strong><%= reservation.ends_at %></p>
+            <hr>
+            <p class="card-price"><strong>Price - </strong>$<%= reservation.total_price.to_i %></p>
+          </div>
+          <% if reservation.property.user == current_user %>
+            <div class="favorite-icon mt-auto">
+              <%= link_to 'Edit status', edit_reservation_path(reservation) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No reservations found.</p>
+  <% end %>
 <% end %>
 
-
-
-<% if current_user.is_homeowner? %>
-  <h3>My Properties</h3>
-  <button><%= link_to 'Add New Property', new_property_path %></button>
-<% end %>
 
 <h3>Favorites:</h3>
 <% if @favorites.any? %>
