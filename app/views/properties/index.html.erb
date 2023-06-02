@@ -20,7 +20,7 @@
   <div class="row d-flex justify-content-center">
     <% @properties.each do |property| %>
       <div class="index-card mb-5 mx-4 col-3 border">
-        <%= image_tag "surf-house.jpg" %>
+        <%= cl_image_tag @random_beachhouse_image_url.sample, alt: "Beach House Image" %>
         <div class="card-body d-flex">
           <div>
             <h5 class="card-title"><%= link_to property.name, property_path(property) %></h5>
