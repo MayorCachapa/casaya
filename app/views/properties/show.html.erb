@@ -29,12 +29,16 @@
       </div>
     </div>
   </div>
-
-  <div class="reservation border-top pt-3">
-    <h5 class="w-25"><strong>Reserve this pad</strong> <i class="fa-solid fa-eye"></i></h5>
-    <button type="button" class="btn btn-primary reservation-button border-radius-round text-light rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Reserve</button>
+    <div class="reservation border-top pt-3">
+    <div class="row d-flex justify-content-between">
+      <h5 class="w-25"><strong>Reserve this pad</strong> <i class="fa-solid fa-eye"></i></h5>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <%= render "reservations/new", property: @property, user: @user, reservation: @reservation %>
+      </div>
+    </div>
   </div>
-
   <div class="reservation-details border-top pt-3">
     <div class="row d-flex justify-content-between">
       <h5 class="w-25"><strong>About this pad</strong> <i class="fa-solid fa-bed"></i></h5>
@@ -68,22 +72,6 @@
 Create a reservation</button> %>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Make a reservation:</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body w-auto">
-        <%= render"reservations/new", property: @property, user: @user, reservation: @reservation %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary text-light rounded-pill" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 <%#
 <script>
   const button = document.getElementById('modal-toggler')
