@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
         if @reservation.save
             redirect_to reservation_path(@reservation)
         else
-            render :new, status: :unprocessable_entity
+            render :index, status: :unprocessable_entity
         end
     end
 
@@ -40,7 +40,7 @@ class ReservationsController < ApplicationController
     private
 
     def reservation_params
-        params.require(:reservation).permit(:starts_at, :ends_at)
+        params.require(:reservation).permit(:starts_at, :ends_at, :guests)
     end
 
     def set_property
